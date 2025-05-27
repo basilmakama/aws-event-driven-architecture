@@ -2,12 +2,12 @@
 
 ![AWS Architecture Diagram](images/photo1.jpeg) 
 
-An event-driven serverless architecture that automatically processes uploaded files using S3, SNS, SQS, and Lambda. Files uploaded to S3 trigger filtered processing workflows through decoupled queues.
+An event-driven serverless architecture that automatically processes uploaded and copied files using S3, SNS, SQS, and Lambda. Files uploaded or copied in S3 trigger filtered processing workflows through decoupled queues.
 
 ## Architecture Overview
 
 1. **S3 Bucket**: Receives uploaded files (Producer)
-2. **S3 Event Notification**: Triggers when new objects are uploaded
+2. **S3 Event Notification**: Triggers when objects are uploaded or copied
 3. **SNS Topic**: Filters events and send to respective queue (Event Ingestion)
 4. **SQS Queues**: Triggers a lambda function (Event stream)
 5. **Lambda Function**: Processes the upload event (Consumer)
